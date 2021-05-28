@@ -226,7 +226,7 @@ async function filterGoodList() {
 		for (let item of args.goodFilters) {
 			if (good.trialName.indexOf(item) != -1) return false
 		}
-		if(good.supplyCount > args.maxSupplyCount){
+		if(good.supplyCount > args.maxSupplyCount || good.supplyCount / good.applyCount<0.03%){
 			return false
 		}
 		return true
