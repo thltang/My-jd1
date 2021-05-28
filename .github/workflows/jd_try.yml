@@ -27,11 +27,7 @@ jobs:
           npm install
       - name: '运行 【京东取关商品/新品试用】'
         run: |
-      
-          node jd_unsubscribe.js
-          node jd_try.js
-          sleep 5m
-          node jd_unsubscribe.js
+          node 京东试用.js
           
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
