@@ -42,7 +42,7 @@ jobs:
               python3 wait24.py 0.1 0.1 29
       - name: '运行 赛车兑换500豆'
         run: |
-          node 赛车兑换.js
+          node 汽车赛点兑换.js
          
           
         env:
