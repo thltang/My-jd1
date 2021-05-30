@@ -27,7 +27,6 @@ jobs:
           npm install
       - name: '京东试用(先取关)'
         run: |
-      
           node 京东取关.js
           node 京东试用.js
           sleep 5m
