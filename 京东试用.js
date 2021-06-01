@@ -23,10 +23,10 @@ let allGoodList = []
 const args = {
 	jdNotify: false,
 	pageSize: 12,
-	cidsList: ["家用电器", "手机数码", "电脑办公", "食品饮料", "生鲜美食", "服饰鞋包", "家居家装"],
+	cidsList: ["家用电器", "手机数码", "电脑办公", "食品饮料", "生鲜美食", "服饰鞋包", "家居家装", "钟表奢品"],
 	typeList: ["普通试用", "闪电试用"],
-	goodFilters: "教程@软件@英语@辅导@培训".split('@'),
-	minPrice: 30,
+	goodFilters: "教程@软件@英语@辅导@培训@手机壳@钢化膜".split('@'),
+	minPrice: 20,
 	maxSupplyCount: 99,
 }
 
@@ -213,14 +213,14 @@ async function getGoodList() {
 async function filterGoodList() {
 	console.log(`⏰ 过滤商品列表，当前共有${allGoodList.length}个商品`)
 	const now = Date.now()
-	const twoMoreDay = now + 2 * 24 * 60 * 60 * 1000
+	const oneMoreDay = now + 24 * 60 * 60 * 1000
 	$.goodList = allGoodList.filter(good => {
 		// 1. good 有问题
 		// 2. good 距离结束不到10min
 		// 3. good 的结束时间大于一天
 		// 4. good 的价格小于最小的限制
 		// 5. good 的试用数量大于 maxSupplyCount, 视为垃圾商品
-		if (!good || good.endTime < now + 10 * 60 * 1000 || good.endTime > twoMoreDay || good.jdPrice < args.minPrice) {
+		if (!good || good.endTime < now + 10 * 60 * 1000 || good.endTime > oneMoreDay || good.jdPrice < args.minPrice) {
 			return false
 		}
 		for (let item of args.goodFilters) {
