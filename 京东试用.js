@@ -27,7 +27,7 @@ const args = {
 	typeList: ["普通试用", "闪电试用"],
 	goodFilters: "教程@软件@英语@辅导@培训@手机壳@钢化膜".split('@'),
 	minPrice: 20,
-	maxSupplyCount: 99,
+	maxSupplyCount: 199,
 }
 
 const cidsMap = {
